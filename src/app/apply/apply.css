@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@utility text-status-open {
+    color: var(--colour-status-open);
+}
+
+@utility stroke-status-open {
+    stroke: var(--colour-status-open);
+}
+
+@utility text-status-closed {
+    color: var(--colour-status-closed);
+}
+
+@theme {
+    --colour-status-open: theme("colors.green.600");
+    --colour-status-closed: theme("colors.red.600");
+}
