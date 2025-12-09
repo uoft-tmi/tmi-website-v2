@@ -13,24 +13,22 @@ export function PositionCard({
     description?: string;
 }) {
     return (
-        <div className="bg-card p-4 rounded-lg border border-gray-200 shadow-md hover:bg-gray-100">
-            <div className="flex justify-between items-center gap-4 ">
+        <div className="bg-card p-4 rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 justify-between flex flex-col gap-4">
+            <p className="text-status-open flex items-center gap-1 font-medium flex justify-end">
+                {positionStatus}
+                <CheckCircleIcon className="stroke-status-open size-6" />
+            </p>
+            <div className="flex justify-between items-center">
                 <h3 className="text-xl flex justify-items-start font-semibold tracking-tight text-gray-900">
                     {positionTitle}
                 </h3>
-                <p className="text-status-open flex gap-1">
-                    {positionStatus}
-                    <CheckCircleIcon className="stroke-status-open size-6" />
-                </p>
             </div>
             <div className="mt-2  text-gray-700">{description}</div>
-            <div className="flex justify-end">
-                <a href="http://localhost:3000/">
-                    <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg py-2 px-4 whitespace-nowrap">
-                        Apply
-                    </button>
-                </a>
-            </div>
+            <a href="http://localhost:3000/">
+                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg py-2 px-4 whitespace-nowrap">
+                    Apply
+                </button>
+            </a>
         </div>
     );
 }
