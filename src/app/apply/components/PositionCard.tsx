@@ -5,30 +5,37 @@ import { CheckCircleIcon } from "@heroicons/react/24/outline";
 
 export function PositionCard({
     positionTitle,
-    positionStatus,
-    description,
+    applyLink,
 }: {
     positionTitle?: string;
-    positionStatus?: string;
-    description?: string;
+    applyLink?: string;
 }) {
     return (
-        <div className="bg-card p-4 rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 justify-between flex flex-col gap-4">
-            <p className="text-status-open flex items-center gap-1 font-medium flex justify-end">
-                {positionStatus}
-                <CheckCircleIcon className="stroke-status-open size-6" />
-            </p>
-            <div className="flex justify-between items-center">
-                <h3 className="text-xl flex justify-items-start font-semibold tracking-tight text-gray-900">
-                    {positionTitle}
-                </h3>
+        <div className="bg-card p-4 rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 justify-between flex flex-col gap-1">
+            <div className="flex items-center justify-between">
+                <div className="flex gap-4 items-center">
+                    <div>
+                        <p className="flex items-center gap-1 text-status-open text-sm font-medium bg-green-100 px-2 py-1 rounded-full">
+                            Open
+                            <CheckCircleIcon className="stroke-status-open size-4" />
+                        </p>
+                    </div>
+                    <h3 className="text-xl flex justify-items-start font-semibold tracking-tight text-gray-900">
+                        {positionTitle}
+                    </h3>
+                </div>
+                {applyLink && (
+                    <a
+                        href={applyLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <button className=" bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm rounded-lg py-2 px-4 transition-colors duration-200">
+                            Apply
+                        </button>
+                    </a>
+                )}
             </div>
-            <div className="mt-2  text-gray-700">{description}</div>
-            <a href="http://localhost:3000/">
-                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg py-2 px-4 whitespace-nowrap">
-                    Apply
-                </button>
-            </a>
         </div>
     );
 }
