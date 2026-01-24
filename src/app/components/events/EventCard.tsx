@@ -1,7 +1,7 @@
 import type {Event} from "./type";
-import { Card } from "./ui/Card";
-import { Button } from "./ui/Button";
-import {Badge} from "@/app/components/events/ui/Badge";
+import { Card } from "@/app/components/ui/Card";
+import { Button } from "@/app/components/ui/Button";
+import { Badge } from "@/app/components/ui/Badge";
 
 // defines the props for EventCard
 interface EventCardProps {

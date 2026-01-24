@@ -20,6 +20,28 @@
 
     /* Semantic Aliases */
     --color-on-accent: var(--color-white);
+
+    /* Typography Scale */
+    --font-size-display-lg: 7rem;      /* Home hero desktop */
+    --font-size-display-md: 6rem;      /* Home hero mobile */
+    --font-size-h1: 3rem;              /* Standard h1 */
+    --font-size-h1-sm: 2.5rem;         /* h1 mobile */
+    --font-size-h2: 2.25rem;           /* Section headers */
+    --font-size-h2-sm: 1.875rem;       /* h2 mobile */
+    --font-size-h3: 1.5rem;            /* Subsections */
+    --font-size-h3-sm: 1.25rem;        /* h3 mobile */
+    --font-size-h4: 1.25rem;           /* Card titles */
+    --font-size-body-lg: 1.125rem;     /* Large body */
+    --font-size-body: 1rem;            /* Standard body */
+    --font-size-body-sm: 0.875rem;     /* Small text */
+
+    /* Status Colors (for badges) */
+    --color-success: #10b981;
+    --color-success-bg: rgba(16, 185, 129, 0.1);
+    --color-warning: #6b7280;
+    --color-warning-bg: rgba(107, 114, 128, 0.1);
+    --color-info: #3b82f6;
+    --color-info-bg: rgba(59, 130, 246, 0.1);
 }
 
 /* Dark Mode Theme - Activated when .dark class is applied to html element */
@@ -44,4 +66,9 @@ html.dark {
 
     /* Semantic Aliases */
     --color-on-accent: var(--color-white);
+
+    /* Status Colors - Dark mode variants */
+    --color-success: #34d399;
+    --color-warning: #9ca3af;
+    --color-info: #60a5fa;
 }

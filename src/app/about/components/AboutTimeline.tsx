@@ -36,23 +36,23 @@ export default function AboutTimeline() {
   const [active, setActive] = useState<number | null>(null);
 
   return (
-    <section className="w-full py-20 md:py-32 bg-[#FBFAF9] overflow-hidden">
-      <h2 className="text-3xl md:text-4xl font-extrabold text-[#0AABBE] text-center mb-16 md:mb-32">
+    <section className="w-full py-20 md:py-32 bg-background overflow-hidden">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-secondary text-center mb-16 md:mb-32">
         Our History
       </h2>
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-12">
         
         {/* DESKTOP VIEW */}
-        <div className="hidden md:flex h-16 rounded-2xl bg-[#FBFBF9] border border-slate-200 shadow-sm items-center justify-between px-12 relative">
+        <div className="hidden md:flex h-16 rounded-2xl bg-card border border-slate-200 shadow-sm items-center justify-between px-12 relative">
           {timeline.map((item, i) => {
             const isTop = i % 2 === 0;
             const isTeal = i % 2 === 0;
-            const themeBg = isTeal ? "bg-[#0891B2]" : "bg-[#FF5E38]";
-            const hoverBg = isTeal ? "hover:bg-[#0892A5]" : "hover:bg-[#E65230]";
+            const themeBg = isTeal ? "bg-secondary" : "bg-primary";
+            const hoverBg = isTeal ? "hover:bg-hover-teal" : "hover:bg-hover-orange";
             const arrowColor = isTeal 
-              ? (isTop ? "border-t-[#0891B2]" : "border-b-[#0891B2]") 
-              : (isTop ? "border-t-[#FF5E38]" : "border-b-[#FF5E38]");
+              ? (isTop ? "border-t-secondary" : "border-b-secondary") 
+              : (isTop ? "border-t-primary" : "border-b-primary");
 
             return (
               <div key={item.year} className="relative flex flex-col items-center">
@@ -69,9 +69,9 @@ export default function AboutTimeline() {
                     {item.title}
                     <span
                       className={`absolute left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-transparent transition-colors duration-200
-                        ${isTop 
-                          ? `top-full border-t-8 ${arrowColor} group-hover:border-t-[#0892A5] group-hover:${isTeal ? 'border-t-[#0892A5]' : 'border-t-[#E65230]'}` 
-                          : `bottom-full border-b-8 ${arrowColor} group-hover:${isTeal ? 'border-b-[#0892A5]' : 'border-b-[#E65230]'}`
+                        ${isTop
+                          ? `top-full border-t-8 ${arrowColor} group-hover:border-t-hover-teal group-hover:${isTeal ? 'border-t-hover-teal' : 'border-t-hover-orange'}`
+                          : `bottom-full border-b-8 ${arrowColor} group-hover:${isTeal ? 'border-b-hover-teal' : 'border-b-hover-orange'}`
                         }`}
                     />
                   </div>
@@ -88,14 +88,14 @@ export default function AboutTimeline() {
         <div className="md:hidden relative border-l-2 border-slate-200 ml-4 space-y-10 pb-12">
           {timeline.map((item, i) => {
             const isTeal = i % 2 === 0;
-            const themeBg = isTeal ? "bg-[#0891B2]" : "bg-[#FF5E38]";
-            const hoverBg = isTeal ? "hover:bg-[#0892A5]" : "hover:bg-[#E65230]";
-            const arrowColorMobile = isTeal ? "border-r-[#0891B2]" : "border-r-[#FF5E38]";
+            const themeBg = isTeal ? "bg-secondary" : "bg-primary";
+            const hoverBg = isTeal ? "hover:bg-hover-teal" : "hover:bg-hover-orange";
+            const arrowColorMobile = isTeal ? "border-r-secondary" : "border-r-primary";
 
             return (
               <div key={item.year} className="relative pl-8">
                 {/* Dot on the vertical line */}
-                <div className={`absolute -left-[9px] top-1 w-4 h-4 rounded-full border-4 border-[#FBFAF9] ${themeBg}`} />
+                <div className={`absolute -left-[9px] top-1 w-4 h-4 rounded-full border-4 border-background ${themeBg}`} />
 
                 <div className="flex flex-col items-start">
                   <span className="text-sm font-bold text-slate-400 mb-2">
@@ -112,7 +112,7 @@ export default function AboutTimeline() {
                       {/* Left-pointing Arrow for mobile */}
                       <span
                         className={`absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-transparent transition-colors duration-200
-                          ${arrowColorMobile} group-hover:${isTeal ? 'border-r-[#0892A5]' : 'border-r-[#E65230]'}`}
+                          ${arrowColorMobile} group-hover:${isTeal ? 'border-r-hover-teal' : 'border-r-hover-orange'}`}
                       />
                     </div>
                   </button>
@@ -128,8 +128,8 @@ export default function AboutTimeline() {
         {active !== null && (
           <ExpandedCard
             item={timeline.find((t) => t.year === active)!}
-            themeColor={timeline.findIndex(t => t.year === active) % 2 === 0 ? "text-[#0891B2]" : "text-[#FF5E38]"}
-            buttonColor={timeline.findIndex(t => t.year === active) % 2 === 0 ? "bg-[#0891B2] hover:bg-[#0892A5]" : "bg-[#FF5E38] hover:bg-[#E65230]"}
+            themeColor={timeline.findIndex(t => t.year === active) % 2 === 0 ? "text-secondary" : "text-primary"}
+            buttonColor={timeline.findIndex(t => t.year === active) % 2 === 0 ? "bg-secondary hover:bg-hover-teal" : "bg-primary hover:bg-hover-orange"}
             onClose={() => setActive(null)}
           />
         )}
