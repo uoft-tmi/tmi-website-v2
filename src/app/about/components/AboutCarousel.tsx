@@ -80,10 +80,10 @@ export default function AboutCarousel() {
   const cardTransition = { type: "spring", stiffness: 300, damping: 30 } as const;
 
   return (
-    <main className="min-h-dvh w-full flex items-center justify-center bg-[#FBFAF9] overflow-hidden">
+    <main className="min-h-dvh w-full flex items-center justify-center bg-background overflow-hidden">
       <section className="w-full max-w-6xl px-4 md:px-6 py-12 md:py-16 text-center">
         
-        <h1 className="text-3xl md:text-4xl font-extrabold text-[#0AABBE] mb-8 md:mb-12 uppercase tracking-tighter">
+        <h1 className="text-3xl md:text-4xl font-extrabold text-secondary mb-8 md:mb-12 uppercase tracking-tighter">
           Meet the Executive Team
         </h1>
 
@@ -105,7 +105,7 @@ export default function AboutCarousel() {
                 animate={{ x: 0, opacity: 1, scale: 1 }}
                 exit={{ x: direction > 0 ? -400 : 400, opacity: 0, scale: 0.8 }}
                 transition={cardTransition}
-                className="absolute z-30 w-full max-w-[300px] md:max-w-sm h-[500px] p-6 md:p-8 rounded-3xl shadow-2xl border border-slate-100 bg-[#FBFBF9] flex flex-col items-center"
+                className="absolute z-30 w-full max-w-[300px] md:max-w-sm h-[500px] p-6 md:p-8 rounded-3xl shadow-2xl border border-slate-100 bg-card flex flex-col items-center"
               >
                 <div className="w-56 h-60 mb-6 overflow-hidden rounded-2xl ring-4 ring-white shadow-inner">
                   <img 
@@ -117,7 +117,7 @@ export default function AboutCarousel() {
                 <h2 className="text-2xl font-bold text-slate-900">{vps[index].name}</h2>
                 <p className="text-cyan-600 font-bold tracking-widest uppercase text-xs mt-1">{vps[index].role}</p>
                 
-                <div className="w-10 h-1 bg-[#FF5E38] mx-auto rounded-full mt-2" />
+                <div className="w-10 h-1 bg-primary mx-auto rounded-full mt-2" />
                 
                 <p className="pt-4 text-slate-600 text-sm leading-relaxed italic">{vps[index].bio}</p>
               </motion.div>
@@ -167,7 +167,7 @@ export default function AboutCarousel() {
           {vps.map((_, i) => (
             <div 
               key={i} 
-              className={`h-2.5 rounded-full transition-all duration-300 ${i === index ? "w-10 bg-[#0AABBE]" : "w-2.5 bg-slate-300"}`}
+              className={`h-2.5 rounded-full transition-all duration-300 ${i === index ? "w-10 bg-secondary" : "w-2.5 bg-slate-300"}`}
             />
           ))}
         </div>
