@@ -17,6 +17,7 @@
     /* Hover States */
     --color-hover-orange: #e65230;
     --color-hover-teal: #0892a5;
+    --color-hover-default: #e0e0e0;
 
     /* Semantic Aliases */
     --color-on-accent: var(--color-white);
@@ -63,6 +64,7 @@ html.dark {
     /* Hover States - Lighter versions for dark mode */
     --color-hover-orange: #ff7d5f;
     --color-hover-teal: #2dd5e8;
+    --color-hover-default: #33302e;
 
     /* Semantic Aliases */
     --color-on-accent: var(--color-white);
