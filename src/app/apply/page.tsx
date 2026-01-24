@@ -66,10 +66,10 @@ export default function Apply() {
     ];
 
     return (
-        <main className="min-h-dvh w-full flex items-center justify-center">
-            <section className="flex flex-col max-w-4xl gap-16 justify-center px-6 py-12">
-                <h1 className="flex justify-center text-6xl font-extrabold leading-tight text-cyan-800 underline underline-offset-16">
-                    Join TMI!
+        <main className="min-h-dvh w-full flex items-center justify-center bg-background text-secondary">
+            <section className="flex flex-col max-w-4xl gap-16 justify-center px-6 py-16">
+                <h1 className="flex justify-center text-5xl font-extrabold leading-tight">
+                    Join TMI
                 </h1>
                 <section className="grid grid-cols-1 md:grid-cols-2 justify-center place-items-center gap-16 px-6">
                     <Image
@@ -80,14 +80,14 @@ export default function Apply() {
                         className="w-full max-w-xs h-auto object-contain rounded-lg"
                     />
                     <div className="flex flex-col justify-center gap-6">
-                        <h1 className="text-4xl font-extrabold leading-tight text-cyan-800">
+                        <h1 className="text-4xl font-extrabold leading-tight">
                             Why Join?
                         </h1>
                         <DescriptionList descriptions={descriptions} />
                     </div>
                 </section>
                 <section>
-                    <h1 className="flex justify-center text-4xl font-extrabold leading-tight text-cyan-800">
+                    <h1 className="flex justify-center text-4xl font-extrabold leading-tight">
                         Stay Up to Date
                     </h1>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 auto-rows-fr">
@@ -96,7 +96,7 @@ export default function Apply() {
                             className="flex gap-4 items-center justify-center"
                         >
                             <EnvelopeIcon className="size-8" />
-                            <h3 className="md:text-xl text-md font-semibold tracking-tight text-gray-900">
+                            <h3 className="md:text-xl text-md font-semibold tracking-tight">
                                 Mailing List
                             </h3>
                         </LinkCard>
@@ -110,7 +110,7 @@ export default function Apply() {
                                 width={32}
                                 height={32}
                             />
-                            <h3 className="md:text-xl text-md font-semibold tracking-tight text-gray-900">
+                            <h3 className="md:text-xl text-md font-semibold tracking-tight">
                                 Discord Server
                             </h3>
                         </LinkCard>
@@ -124,14 +124,14 @@ export default function Apply() {
                                 width={32}
                                 height={32}
                             />
-                            <h3 className="md:text-xl text-md font-semibold tracking-tight text-gray-900">
+                            <h3 className="md:text-xl text-md font-semibold tracking-tight ">
                                 Instagram
                             </h3>
                         </LinkCard>
                     </div>
                 </section>
                 <section>
-                    <h1 className="flex justify-center text-4xl font-extrabold leading-tight text-cyan-800 ">
+                    <h1 className="flex justify-center text-4xl font-extrabold leading-tight">
                         Positions
                     </h1>
                     <div className="grid grid-flow-row gap-4 mt-6">
@@ -145,7 +145,7 @@ export default function Apply() {
                     </div>
                 </section>
                 <section>
-                    <h1 className="flex justify-center text-4xl font-extrabold leading-tight text-cyan-800 ">
+                    <h1 className="flex justify-center text-4xl font-extrabold leading-tight">
                         FAQ
                     </h1>
                     {faqs.map((faq, index) => (

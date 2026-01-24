@@ -11,7 +11,7 @@ export function PositionCard({
     applyLink?: string;
 }) {
     return (
-        <div className="bg-card p-4 rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 justify-between flex flex-col gap-1">
+        <div className="bg-card p-4 rounded-lg border border-gray-200 shadow-md hover:bg-hover-default justify-between flex flex-col gap-1 text-secondary">
             <div className="flex md:flex-row md:items-center md:justify-between md:gap-1 flex-col gap-4">
                 <div className="flex gap-4 items-center">
                     <div>
@@ -20,7 +20,7 @@ export function PositionCard({
                             <CheckCircleIcon className="stroke-status-open size-4" />
                         </p>
                     </div>
-                    <h3 className="md:text-xl text-md flex justify-items-start font-semibold tracking-tight text-gray-900">
+                    <h3 className="md:text-xl text-md flex justify-items-start font-semibold tracking-tight">
                         {positionTitle}
                     </h3>
                 </div>
@@ -30,7 +30,7 @@ export function PositionCard({
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-xs rounded-lg py-2 px-4 transition-colors duration-200">
+                        <button className="w-full bg-primary hover:hover-orange text-white font-semibold text-xs rounded-lg py-2 px-4 transition-colors duration-200">
                             Apply
                         </button>
                     </a>

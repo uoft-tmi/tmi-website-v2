@@ -19,14 +19,12 @@ export function DropdownCard({
                 className=" w-full flex justify-between"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                <h1 className="text-2xl font-bold text-cyan-800">{title}</h1>
-                {isOpen && <ChevronUpIcon className="size-6 text-cyan-800" />}
-                {!isOpen && (
-                    <ChevronDownIcon className="size-6 text-cyan-800" />
-                )}
+                <h1 className="text-2xl font-bold text-secondary">{title}</h1>
+                {isOpen && <ChevronUpIcon className="size-6 text-primary" />}
+                {!isOpen && <ChevronDownIcon className="size-6 text-primary" />}
             </button>
             {isOpen && (
-                <p className="mt-2 text-xl text-cyan-700">{description}</p>
+                <p className="mt-2 text-xl text-text-muted">{description}</p>
             )}
         </div>
     );
