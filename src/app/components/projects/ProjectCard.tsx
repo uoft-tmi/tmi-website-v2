@@ -1,7 +1,7 @@
 import { Project } from "./types";
-import { Card } from "./ui/Card";
-import { Badge } from "./ui/Badge";
-import { Button } from "./ui/Button";
+import { Card } from "@/app/components/ui/Card";
+import { Badge } from "@/app/components/ui/Badge";
+import { Button } from "@/app/components/ui/Button";
 import { ProjectMediaCarousel } from "./ProjectMediaCarousel";
 
 interface ProjectCardProps {

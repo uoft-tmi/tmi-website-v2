@@ -11,9 +11,9 @@ export function Badge({
 }: BadgeProps) {
   const variantStyles = {
     default: "bg-secondary/10 text-secondary",
-    active: "bg-green-500/10 text-green-600 dark:text-green-400",
-    paused: "bg-gray-500/10 text-gray-600 dark:text-gray-400",
-    completed: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
+    active: "bg-success-bg text-success",
+    paused: "bg-warning-bg text-warning",
+    completed: "bg-info-bg text-info",
   };
 
   return (
@@ -24,4 +24,3 @@ export function Badge({
     </span>
   );
 }
-
