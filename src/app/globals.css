@@ -1,12 +1,47 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+    /* TMI Colors */
+    --color-primary: #ff5e38;
+    --color-secondary: #0aabbe;
+
+    /* Background Colors */
+    --color-background: #fbfaf9;
+    --color-card: #fbfbf9;
+    --color-white: #ffffff;
+
+    /* Text Colors */
+    --color-text-primary: #000000;
+    --color-text-muted: rgba(0, 0, 0, 0.7);
+
+    /* Hover States */
+    --color-hover-orange: #e65230;
+    --color-hover-teal: #0892a5;
+
+    /* Semantic Aliases */
+    --color-on-accent: var(--color-white);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Dark Mode Theme - Activated when .dark class is applied to html element */
+:root.dark,
+html.dark {
+    /* TMI Colors - Slightly adjusted for better contrast in dark mode */
+    --color-primary: #ff6b4a;
+    --color-secondary: #1bc5d9;
+
+    /* Background Colors - Warm dark tones that complement the light theme */
+    --color-background: #1a1816;
+    --color-card: #242220;
+    --color-white: #ffffff;
+
+    /* Text Colors - Inverted for dark backgrounds */
+    --color-text-primary: #f5f4f3;
+    --color-text-muted: rgba(245, 244, 243, 0.7);
+
+    /* Hover States - Lighter versions for dark mode */
+    --color-hover-orange: #ff7d5f;
+    --color-hover-teal: #2dd5e8;
+
+    /* Semantic Aliases */
+    --color-on-accent: var(--color-white);
 }
