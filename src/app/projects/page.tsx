@@ -13,10 +13,10 @@ export default function Projects() {
 
   return (
     <main className="min-h-screen w-full bg-background">
-      <div className="max-w-6xl mx-auto px-6 py-8 md:py-12">
+      <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
         {/* Page Header */}
         <section className="mb-8 md:mb-12 text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-secondary mb-4">
             Projects
           </h1>
           <p className="text-base md:text-lg text-text-muted max-w-2xl mx-auto">
