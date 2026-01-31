@@ -42,13 +42,19 @@ export default function Newsletter() {
         setIsSubmitting(true);
 
         try {
-            // Mock API call - logs to console for now
-            console.log("Newsletter signup:", { name, email });
-            
-            // Simulate API delay
-            await new Promise((resolve) => setTimeout(resolve, 500));
+            const res = await fetch("/api/newsletter", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ name, email }),
+            });
 
-            // Redirect to confirmation page
+            if (!res.ok) {
+                const data = await res.json();
+                throw new Error(data.error || "Subscription failed");
+            }
+
             router.push(`/newsletter/confirmation?name=${encodeURIComponent(name)}`);
         } catch (error) {
             console.error("Signup error:", error);
