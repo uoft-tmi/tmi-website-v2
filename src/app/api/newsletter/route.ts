@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// Mock storage - replace with actual database
+// Mock storage, replace with actual database
 const subscribers: { name: string; email: string; subscribedAt: string }[] = [];
 
 export async function POST(request: NextRequest) {
