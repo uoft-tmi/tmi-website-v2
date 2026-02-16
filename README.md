@@ -29,3 +29,4 @@ Open `http://localhost:3000`.
 - Keep changes small and focused
 - Avoid introducing new patterns or tech unless necessary
 - Consider dev/test/prod environments when making changes
+- Document code
