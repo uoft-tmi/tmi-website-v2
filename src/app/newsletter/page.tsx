@@ -96,12 +96,12 @@ export default function Newsletter() {
                             placeholder="Your name"
                             className={`w-full rounded-md border ${
                                 errors.name
-                                    ? "border-red-500 focus:ring-red-500"
+                                    ? "border-red-500 dark:border-red-400 focus:ring-red-500 dark:focus:ring-red-400"
                                     : "border-secondary/30 focus:ring-primary"
                             } bg-card px-4 py-2.5 text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 transition`}
                         />
                         {errors.name && (
-                            <p className="mt-1.5 text-sm text-red-500">{errors.name}</p>
+                            <p className="mt-1.5 text-sm text-red-500 dark:text-red-400">{errors.name}</p>
                         )}
                     </div>
 
@@ -123,12 +123,12 @@ export default function Newsletter() {
                             placeholder="you@example.com"
                             className={`w-full rounded-md border ${
                                 errors.email
-                                    ? "border-red-500 focus:ring-red-500"
+                                    ? "border-red-500 dark:border-red-400 focus:ring-red-500 dark:focus:ring-red-400"
                                     : "border-secondary/30 focus:ring-primary"
                             } bg-card px-4 py-2.5 text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 transition`}
                         />
                         {errors.email && (
-                            <p className="mt-1.5 text-sm text-red-500">{errors.email}</p>
+                            <p className="mt-1.5 text-sm text-red-500 dark:text-red-400">{errors.email}</p>
                         )}
                     </div>
 

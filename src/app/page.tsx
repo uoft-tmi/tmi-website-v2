@@ -27,20 +27,20 @@ export default function Home() {
                   Get Involved
                   </h2>
               <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3">
-                  <div className="rounded-2xl bg-white p-8 shadow-sm transition hover:shadow-md">
-                      <h3 className="mb-3 text-xl font-semibold">Join Mailing List</h3>
+                  <div className="rounded-2xl bg-white dark:bg-card p-8 shadow-sm transition hover:shadow-md">
+                      <h3 className="mb-3 text-xl font-semibold text-text-primary">Join Mailing List</h3>
                       <p className="text-text-muted">
                           Stay updated with our latest research and projects
                       </p>
                   </div>
-                  <div className="rounded-2xl bg-white p-8 shadow-sm transition hover:shadow-md">
-                      <h3 className="mb-3 text-xl font-semibold">Discord</h3>
+                  <div className="rounded-2xl bg-white dark:bg-card p-8 shadow-sm transition hover:shadow-md">
+                      <h3 className="mb-3 text-xl font-semibold text-text-primary">Discord</h3>
                       <p className="text-text-muted">
                         Connect with us
                       </p>
                   </div>
-                  <div className="rounded-2xl bg-white p-8 shadow-sm transition hover:shadow-md">
-                     <h3 className="mb-3 text-xl font-semibold">Upcoming Events</h3>
+                  <div className="rounded-2xl bg-white dark:bg-card p-8 shadow-sm transition hover:shadow-md">
+                     <h3 className="mb-3 text-xl font-semibold text-text-primary">Upcoming Events</h3>
                      <p className="text-text-muted">
                        Join us in our next workshop, seminar, or event
                      </p>

@@ -5,7 +5,7 @@ import AboutValues from "./components/AboutValues";
 
 export default function AboutPage() {
   return (
-    <main className="w-full bg-white">
+    <main className="w-full bg-background">
       {/* Description Section */}
       <AboutIntroduction />
       
