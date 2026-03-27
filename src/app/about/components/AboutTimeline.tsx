@@ -44,7 +44,7 @@ export default function AboutTimeline() {
       <div className="relative max-w-6xl mx-auto px-4 md:px-12">
         
         {/* DESKTOP VIEW */}
-        <div className="hidden md:flex h-16 rounded-2xl bg-card border border-slate-200 shadow-sm items-center justify-between px-12 relative">
+        <div className="hidden md:flex h-16 rounded-2xl bg-card border border-secondary/20 dark:border-secondary/30 shadow-sm items-center justify-between px-12 relative">
           {timeline.map((item, i) => {
             const isTop = i % 2 === 0;
             const isTeal = i % 2 === 0;
@@ -56,7 +56,7 @@ export default function AboutTimeline() {
 
             return (
               <div key={item.year} className="relative flex flex-col items-center">
-                <span className="font-bold text-slate-700 tracking-wide">
+                <span className="font-bold text-text-primary tracking-wide">
                   {item.year}
                 </span>
 
@@ -85,7 +85,7 @@ export default function AboutTimeline() {
             MOBILE VIEW (Vertical) 
             Visible only on small screens (md:hidden)
            ========================================= */}
-        <div className="md:hidden relative border-l-2 border-slate-200 ml-4 space-y-10 pb-12">
+        <div className="md:hidden relative border-l-2 border-secondary/20 dark:border-secondary/30 ml-4 space-y-10 pb-12">
           {timeline.map((item, i) => {
             const isTeal = i % 2 === 0;
             const themeBg = isTeal ? "bg-secondary" : "bg-primary";
@@ -98,7 +98,7 @@ export default function AboutTimeline() {
                 <div className={`absolute -left-[9px] top-1 w-4 h-4 rounded-full border-4 border-background ${themeBg}`} />
 
                 <div className="flex flex-col items-start">
-                  <span className="text-sm font-bold text-slate-400 mb-2">
+                  <span className="text-sm font-bold text-text-muted mb-2">
                     {item.year}
                   </span>
 
@@ -159,7 +159,7 @@ function ExpandedCard({
     >
       <motion.div
         onClick={(e) => e.stopPropagation()}
-        className="bg-white max-w-lg w-full p-8 rounded-3xl shadow-2xl border border-slate-100"
+        className="bg-white dark:bg-card max-w-lg w-full p-8 rounded-3xl shadow-2xl border border-secondary/20 dark:border-secondary/30"
         initial={{ scale: 0.8, y: 30 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.8, y: 30 }}
@@ -167,10 +167,10 @@ function ExpandedCard({
         <h3 className={`text-2xl font-bold mb-2 ${themeColor}`}>
           {item.year}
         </h3>
-        <h4 className="font-semibold text-slate-800 mb-4">
+        <h4 className="font-semibold text-text-primary mb-4">
           {item.title}
         </h4>
-        <p className="text-slate-600 leading-relaxed">
+        <p className="text-text-muted leading-relaxed">
           {item.description}
         </p>
 

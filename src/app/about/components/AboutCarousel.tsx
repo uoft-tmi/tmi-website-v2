@@ -91,7 +91,7 @@ export default function AboutCarousel() {
           
           <button
             onClick={prev}
-            className="z-50 p-2 md:p-3 rounded-full bg-white shadow-lg border hover:scale-110 active:scale-95 transition-transform"
+            className="z-50 p-2 md:p-3 rounded-full bg-white dark:bg-card shadow-lg border border-secondary/20 dark:border-secondary/30 hover:scale-110 active:scale-95 transition-transform"
           >
             <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
           </button>
@@ -105,7 +105,7 @@ export default function AboutCarousel() {
                 animate={{ x: 0, opacity: 1, scale: 1 }}
                 exit={{ x: direction > 0 ? -400 : 400, opacity: 0, scale: 0.8 }}
                 transition={cardTransition}
-                className="absolute z-30 w-full max-w-[300px] md:max-w-sm h-[500px] p-6 md:p-8 rounded-3xl shadow-2xl border border-slate-100 bg-card flex flex-col items-center"
+                className="absolute z-30 w-full max-w-[300px] md:max-w-sm h-[500px] p-6 md:p-8 rounded-3xl shadow-2xl border border-secondary/20 dark:border-secondary/30 bg-card flex flex-col items-center"
               >
                 <div className="w-56 h-60 mb-6 overflow-hidden rounded-2xl ring-4 ring-white shadow-inner">
                   <img 
@@ -114,12 +114,12 @@ export default function AboutCarousel() {
                     alt={vps[index].name} 
                   />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-900">{vps[index].name}</h2>
-                <p className="text-cyan-600 font-bold tracking-widest uppercase text-xs mt-1">{vps[index].role}</p>
+                <h2 className="text-2xl font-bold text-text-primary">{vps[index].name}</h2>
+                <p className="text-secondary font-bold tracking-widest uppercase text-xs mt-1">{vps[index].role}</p>
                 
                 <div className="w-10 h-1 bg-primary mx-auto rounded-full mt-2" />
                 
-                <p className="pt-4 text-slate-600 text-sm leading-relaxed italic">{vps[index].bio}</p>
+                <p className="pt-4 text-text-muted text-sm leading-relaxed italic">{vps[index].bio}</p>
               </motion.div>
 
               {/* LEFT CARD */}
@@ -129,7 +129,7 @@ export default function AboutCarousel() {
                 animate={{ x: -380, opacity: 0.4, scale: 0.75 }}
                 exit={{ x: direction > 0 ? 0 : -800, opacity: 0, scale: 0.7 }}
                 transition={cardTransition}
-                className="hidden md:block absolute w-64 h-80 border-2 border-slate-200 rounded-3xl overflow-hidden cursor-pointer shadow-lg bg-white"
+                className="hidden md:block absolute w-64 h-80 border-2 border-secondary/20 dark:border-secondary/30 rounded-3xl overflow-hidden cursor-pointer shadow-lg bg-white dark:bg-card"
                 style={{ filter: "grayscale(70%) brightness(0.9)" }}
                 onClick={prev}
                 whileHover={{ scale: 0.78, opacity: 0.5, filter: "grayscale(50%) brightness(1)" }}
@@ -144,7 +144,7 @@ export default function AboutCarousel() {
                 animate={{ x: 380, opacity: 0.4, scale: 0.75 }}
                 exit={{ x: direction > 0 ? 800 : 0, opacity: 0, scale: 0.7 }}
                 transition={cardTransition}
-                className="hidden md:block absolute w-64 h-80 border-2 border-slate-200 rounded-3xl overflow-hidden cursor-pointer shadow-lg bg-white"
+                className="hidden md:block absolute w-64 h-80 border-2 border-secondary/20 dark:border-secondary/30 rounded-3xl overflow-hidden cursor-pointer shadow-lg bg-white dark:bg-card"
                 style={{ filter: "grayscale(70%) brightness(0.9)" }}
                 onClick={next}
                 whileHover={{ scale: 0.78, opacity: 0.5, filter: "grayscale(50%) brightness(1)" }}
@@ -156,7 +156,7 @@ export default function AboutCarousel() {
 
           <button
             onClick={next}
-            className="z-50 p-2 md:p-3 rounded-full bg-white shadow-lg border hover:scale-110 active:scale-95 transition-transform"
+            className="z-50 p-2 md:p-3 rounded-full bg-white dark:bg-card shadow-lg border border-secondary/20 dark:border-secondary/30 hover:scale-110 active:scale-95 transition-transform"
           >
             <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
           </button>
@@ -167,7 +167,7 @@ export default function AboutCarousel() {
           {vps.map((_, i) => (
             <div 
               key={i} 
-              className={`h-2.5 rounded-full transition-all duration-300 ${i === index ? "w-10 bg-secondary" : "w-2.5 bg-slate-300"}`}
+              className={`h-2.5 rounded-full transition-all duration-300 ${i === index ? "w-10 bg-secondary" : "w-2.5 bg-secondary/30"}`}
             />
           ))}
         </div>

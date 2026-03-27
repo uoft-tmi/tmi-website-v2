@@ -18,7 +18,7 @@ export default function AboutIntroduction() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
 
-          className="bg-card p-8 md:p-20 rounded-[2rem] md:rounded-[3rem] shadow-sm border border-slate-100 relative overflow-hidden"
+          className="bg-card p-8 md:p-20 rounded-[2rem] md:rounded-[3rem] shadow-sm border border-secondary/20 dark:border-secondary/30 relative overflow-hidden"
         >
           {/* Accent Dot */}
           <div className="absolute top-6 left-6 md:top-10 md:left-10 w-3 h-3 bg-primary rounded-full" />

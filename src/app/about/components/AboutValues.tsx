@@ -38,7 +38,7 @@ export default function AboutValues() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
 
-            className="bg-card p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-sm border border-slate-100 relative overflow-hidden flex flex-col h-full"
+            className="bg-card p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-sm border border-secondary/20 dark:border-secondary/30 relative overflow-hidden flex flex-col h-full"
           >
 
             <div 
