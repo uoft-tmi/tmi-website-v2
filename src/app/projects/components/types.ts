@@ -13,11 +13,14 @@ export interface Project {
   status: ProjectStatus;
   tags: string[];
   leads: string[];
+  advisor?: string;
   links: {
     github?: string;
     paper?: string;
     demo?: string;
+    huggingface?: string;
+    proposal?: string;
+    slides?: string;
   };
   media: ProjectMedia[];
 }
-

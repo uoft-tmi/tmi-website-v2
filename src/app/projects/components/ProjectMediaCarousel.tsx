@@ -11,9 +11,8 @@ interface ProjectMediaCarouselProps {
 
 export function ProjectMediaCarousel({ project }: ProjectMediaCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: false,
+    loop: true,
     align: "start",
-    containScroll: "trimSnaps",
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
@@ -39,7 +38,7 @@ export function ProjectMediaCarousel({ project }: ProjectMediaCarouselProps) {
 
     emblaApi.on("select", onSelect);
     emblaApi.on("reInit", onReInit);
-    
+
     // Trigger initial setup via reInit event
     emblaApi.reInit();
 
@@ -75,32 +74,15 @@ export function ProjectMediaCarousel({ project }: ProjectMediaCarouselProps) {
     [scrollPrev, scrollNext]
   );
 
-  // Prepare slides: overview slide + media slides
-  const slides: (ProjectMedia | { type: "overview" })[] = [
-    { type: "overview" },
-    ...project.media.filter((m) => m.type !== "overview"),
-  ];
+  // Prepare slides: media slides only (images, code, video)
+  const slides = project.media.filter((m) => m.type !== "overview");
 
-  const renderSlide = (slide: ProjectMedia | { type: "overview" }, index: number) => {
-    if (slide.type === "overview") {
-      return (
-        <div
-          key="overview"
-          className="flex flex-col justify-center p-4 md:p-6 min-h-[160px] md:min-h-[180px]"
-        >
-          <h3 className="text-xl md:text-2xl font-bold text-primary mb-2">
-            {project.title}
-          </h3>
-          <p className="text-xs md:text-sm text-text-muted line-clamp-3 mb-3">
-            {project.description}
-          </p>
-          <p className="text-xs text-text-muted">
-            Research Leads: {project.leads.join(", ")}
-          </p>
-        </div>
-      );
-    }
+  // Don't render carousel if there are no media slides
+  if (slides.length === 0) {
+    return null;
+  }
 
+  const renderSlide = (slide: ProjectMedia, index: number) => {
     if (slide.type === "image") {
       return (
         <div
@@ -186,7 +168,7 @@ export function ProjectMediaCarousel({ project }: ProjectMediaCarouselProps) {
           <button
             onClick={scrollPrev}
             disabled={!canScrollPrev}
-            className={`absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-card/90 backdrop-blur-sm border border-secondary/20 text-text-primary hover:bg-card hover:text-primary transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 ${
+            className={`absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-card/90 backdrop-blur-sm border border-secondary/20 text-text-primary hover:bg-card hover:text-primary transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 cursor-grab ${
               isHovered && canScrollPrev
                 ? "opacity-100"
                 : "opacity-0 md:opacity-0"
@@ -208,7 +190,7 @@ export function ProjectMediaCarousel({ project }: ProjectMediaCarouselProps) {
           <button
             onClick={scrollNext}
             disabled={!canScrollNext}
-            className={`absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-card/90 backdrop-blur-sm border border-secondary/20 text-text-primary hover:bg-card hover:text-primary transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 ${
+            className={`absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-card/90 backdrop-blur-sm border border-secondary/20 text-text-primary hover:bg-card hover:text-primary transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 cursor-grab ${
               isHovered && canScrollNext
                 ? "opacity-100"
                 : "opacity-0 md:opacity-0"
@@ -251,4 +233,3 @@ export function ProjectMediaCarousel({ project }: ProjectMediaCarouselProps) {
     </div>
   );
 }
-

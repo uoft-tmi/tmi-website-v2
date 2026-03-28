@@ -1,5 +1,5 @@
-import { ProjectCard } from "@/app/components/projects/ProjectCard";
-import { sampleProjects } from "@/app/components/projects/sampleData";
+import { ProjectCard } from "./components/ProjectCard";
+import { sampleProjects } from "./components/sampleData";
 import Link from "next/link";
 
 export default function Projects() {
@@ -70,7 +70,7 @@ export default function Projects() {
               href="/about"
               className="rounded-md border border-secondary/60 px-5 py-2.5 text-sm font-semibold text-secondary transition hover:bg-secondary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60"
             >
-              Meet Our Researchers
+              Meet the Team
             </Link>
           </div>
         </div>
