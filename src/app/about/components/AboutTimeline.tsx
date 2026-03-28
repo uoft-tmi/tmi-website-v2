@@ -42,7 +42,7 @@ export default function AboutTimeline() {
       </h2>
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-12">
-        
+
         {/* DESKTOP VIEW */}
         <div className="hidden md:flex h-16 rounded-2xl bg-card border border-secondary/20 dark:border-secondary/30 shadow-sm items-center justify-between px-12 relative">
           {timeline.map((item, i) => {
@@ -50,8 +50,8 @@ export default function AboutTimeline() {
             const isTeal = i % 2 === 0;
             const themeBg = isTeal ? "bg-secondary" : "bg-primary";
             const hoverBg = isTeal ? "hover:bg-hover-teal" : "hover:bg-hover-orange";
-            const arrowColor = isTeal 
-              ? (isTop ? "border-t-secondary" : "border-b-secondary") 
+            const arrowColor = isTeal
+              ? (isTop ? "border-t-secondary" : "border-b-secondary")
               : (isTop ? "border-t-primary" : "border-b-primary");
 
             return (
@@ -82,7 +82,7 @@ export default function AboutTimeline() {
         </div>
 
         {/* =========================================
-            MOBILE VIEW (Vertical) 
+            MOBILE VIEW (Vertical)
             Visible only on small screens (md:hidden)
            ========================================= */}
         <div className="md:hidden relative border-l-2 border-secondary/20 dark:border-secondary/30 ml-4 space-y-10 pb-12">

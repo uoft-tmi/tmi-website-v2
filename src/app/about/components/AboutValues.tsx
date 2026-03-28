@@ -6,17 +6,17 @@ const values = [
   {
     title: "Scientific Integrity",
     description: "We prioritize rigorous methodology and peer-reviewed standards in all our research and projects.",
-    color: "var(--color-secondary)", 
+    color: "var(--color-secondary)",
   },
   {
     title: "Proactive Safety",
     description: "We believe AI safety isn't an afterthought—it must be baked into the architecture from day one.",
-    color: "var(--color-primary)", 
+    color: "var(--color-primary)",
   },
   {
     title: "Open Collaboration",
     description: "Innovation thrives in the open. We share our findings and tools to help the broader community grow.",
-    color: "var(--color-secondary)", 
+    color: "var(--color-secondary)",
   },
 ];
 
@@ -41,8 +41,8 @@ export default function AboutValues() {
             className="bg-card p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-sm border border-secondary/20 dark:border-secondary/30 relative overflow-hidden flex flex-col h-full"
           >
 
-            <div 
-              className="w-3 h-3 rounded-full mb-6" 
+            <div
+              className="w-3 h-3 rounded-full mb-6"
               style={{ backgroundColor: value.color }}
             />
 
@@ -56,8 +56,8 @@ export default function AboutValues() {
               {value.description}
             </p>
 
-            <div 
-              className="mt-6 md:mt-8 w-12 h-1 rounded-full" 
+            <div
+              className="mt-6 md:mt-8 w-12 h-1 rounded-full"
               style={{ backgroundColor: value.color }}
             />
           </motion.div>

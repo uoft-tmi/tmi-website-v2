@@ -3,44 +3,62 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
-
-const vps = [
+const teamMembers = [
   {
-    name: "VP1",
-    role: "President",
-    imageUrl: "https://shapes.inc/api/public/avatar/milkywaycookie-wvzv",
-    bio: "Current President of the Trustworthy Machine Intelligence Club.",
+    name: "Joeun",
+    role: "Co-President",
+    imageUrl: "/images/people/joeun.jpeg",
+    bio: "Swimming, kickboxing, travelling",
   },
   {
-    name: "VP2",
-    role: "Vice President",
-    imageUrl: "https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3V5JTIwaW4lMjBzdWl0fGVufDB8fDB8fHww",
-    bio: "Assisting the President in all duties and responsibilities.",
+    name: "Steven",
+    role: "Co-President",
+    imageUrl: "/images/people/steven.jpeg",
+    bio: "I'm a big map nerd lol",
   },
   {
-    name: "VP3",
-    role: "Vice President",
-    imageUrl: "https://media.istockphoto.com/id/1413766112/photo/successful-mature-businessman-looking-at-camera-with-confidence.jpg?s=612x612&w=0&k=20&c=NJSugBzNuZqb7DJ8ZgLfYKb3qPr2EJMvKZ21Sj5Sfq4=",
-    bio: "Supporting the President and Vice President 1.",
+    name: "Anthony",
+    role: "VP Webmaster",
+    imageUrl: "/images/people/anthony.jpeg",
+    bio: "I run and eat too much",
   },
   {
-    name: "VP4",
-    role: "President",
-    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvvEZFi-87iu4RSUyE_76vygxlnFUDUPIRGw&s",
-    bio: "Current President of the Trustworthy Machine Intelligence Club.",
+    name: "Lillian",
+    role: "VP Finance",
+    imageUrl: "/images/people/lillian.jpeg",
+    bio: "Violin, golf, archery",
   },
   {
-    name: "VP5",
-    role: "Vice President",
-    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQetD2RUB6Kz51fklbnoSBYErOAu6oWs_Qu9g&s",
-    bio: "Assisting the President in all duties and responsibilities.",
+    name: "Kera",
+    role: "VP Learnings",
+    imageUrl: "/images/people/kera.png",
+    bio: "piano, reading",
   },
   {
-    name: "VP6",
-    role: "Vice President",
-    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHBOjJWhTw4pgoUA0vz9FiRZYRaiE4RVxvEQ&s",
-    bio: "Supporting the President and Vice President 1.",
+    name: "Christina",
+    role: "Project Lead: Context-Based Captioning",
+    imageUrl: "/images/people/christina.png",
+    bio: "Human-centric AI, ML for Privacy/Defense",
+  },
+  {
+    name: "Clementine",
+    role: "Project Lead: LLM Social Simulation",
+    imageUrl: "/images/people/clementine.jpeg",
+    bio: "I have a dog and I play badminton",
+  },
+  {
+    name: "Seoyun",
+    role: "Project Lead: Machine Unlearning",
+    imageUrl: "/images/people/seoyun.jpeg",
+    bio: "Reading, Crocheting/Knitting, Watching anime",
+  },
+  {
+    name: "Yiping",
+    role: "Project Lead: Explainable Cencorship",
+    imageUrl: "/images/people/yiping.jpeg",
+    bio: "I like playing tetris!!!",
   },
 ];
 
@@ -53,7 +71,7 @@ export default function AboutCarousel() {
     if (isAnimating) return;
     setIsAnimating(true);
     setDirection(1);
-    setIndex((prev) => (prev + 1) % vps.length);
+    setIndex((prev) => (prev + 1) % teamMembers.length);
     setTimeout(() => setIsAnimating(false), 700);
   }, [isAnimating]);
 
@@ -61,7 +79,7 @@ export default function AboutCarousel() {
     if (isAnimating) return;
     setIsAnimating(true);
     setDirection(-1);
-    setIndex((prev) => (prev - 1 + vps.length) % vps.length);
+    setIndex((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
     setTimeout(() => setIsAnimating(false), 700);
   }, [isAnimating]);
 
@@ -74,21 +92,21 @@ export default function AboutCarousel() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [next, prev]);
 
-  const leftIndex = (index - 1 + vps.length) % vps.length;
-  const rightIndex = (index + 1) % vps.length;
+  const leftIndex = (index - 1 + teamMembers.length) % teamMembers.length;
+  const rightIndex = (index + 1) % teamMembers.length;
 
   const cardTransition = { type: "spring", stiffness: 300, damping: 30 } as const;
 
   return (
     <main className="min-h-dvh w-full flex items-center justify-center bg-background overflow-hidden">
       <section className="w-full max-w-6xl px-4 md:px-6 py-12 md:py-16 text-center">
-        
+
         <h1 className="text-3xl md:text-4xl font-extrabold text-secondary mb-8 md:mb-12 uppercase tracking-tighter">
           Meet the Executive Team
         </h1>
 
         <div className="relative flex items-center justify-center gap-2 md:gap-8 h-[520px]">
-          
+
           <button
             onClick={prev}
             className="z-50 p-2 md:p-3 rounded-full bg-white dark:bg-card shadow-lg border border-secondary/20 dark:border-secondary/30 hover:scale-110 active:scale-95 transition-transform"
@@ -107,19 +125,21 @@ export default function AboutCarousel() {
                 transition={cardTransition}
                 className="absolute z-30 w-full max-w-[300px] md:max-w-sm h-[500px] p-6 md:p-8 rounded-3xl shadow-2xl border border-secondary/20 dark:border-secondary/30 bg-card flex flex-col items-center"
               >
-                <div className="w-56 h-60 mb-6 overflow-hidden rounded-2xl ring-4 ring-white shadow-inner">
-                  <img 
-                    src={vps[index].imageUrl} 
-                    className="w-full h-full object-cover object-top" 
-                    alt={vps[index].name} 
+                <div className="relative aspect-[3/4] w-48 mb-6 overflow-hidden rounded-2xl ring-4 ring-white shadow-inner">
+                  <Image
+                    src={teamMembers[index].imageUrl}
+                    alt={teamMembers[index].name}
+                    fill
+                    className="object-cover object-[center_20%]"
+                    sizes="192px"
                   />
                 </div>
-                <h2 className="text-2xl font-bold text-text-primary">{vps[index].name}</h2>
-                <p className="text-secondary font-bold tracking-widest uppercase text-xs mt-1">{vps[index].role}</p>
-                
+                <h2 className="text-2xl font-bold text-text-primary">{teamMembers[index].name}</h2>
+                <p className="text-secondary font-bold tracking-widest uppercase text-xs mt-1">{teamMembers[index].role}</p>
+
                 <div className="w-10 h-1 bg-primary mx-auto rounded-full mt-2" />
-                
-                <p className="pt-4 text-text-muted text-sm leading-relaxed italic">{vps[index].bio}</p>
+
+                <p className="pt-4 text-text-muted text-sm leading-relaxed italic">Fun fact/hobby: {teamMembers[index].bio}</p>
               </motion.div>
 
               {/* LEFT CARD */}
@@ -134,7 +154,7 @@ export default function AboutCarousel() {
                 onClick={prev}
                 whileHover={{ scale: 0.78, opacity: 0.5, filter: "grayscale(50%) brightness(1)" }}
               >
-                <img src={vps[leftIndex].imageUrl} className="w-full h-full object-cover" alt={vps[leftIndex].name} />
+                <Image src={teamMembers[leftIndex].imageUrl} alt={teamMembers[leftIndex].name} fill className="object-cover object-top" sizes="256px" />
               </motion.div>
 
               {/* RIGHT CARD */}
@@ -149,7 +169,7 @@ export default function AboutCarousel() {
                 onClick={next}
                 whileHover={{ scale: 0.78, opacity: 0.5, filter: "grayscale(50%) brightness(1)" }}
               >
-                <img src={vps[rightIndex].imageUrl} className="w-full h-full object-cover" alt="" />
+                <Image src={teamMembers[rightIndex].imageUrl} alt={teamMembers[rightIndex].name} fill className="object-cover object-top" sizes="256px" />
               </motion.div>
             </AnimatePresence>
           </div>
@@ -164,9 +184,9 @@ export default function AboutCarousel() {
 
         {/* Indicators */}
         <div className="flex justify-center gap-3 mt-12">
-          {vps.map((_, i) => (
-            <div 
-              key={i} 
+          {teamMembers.map((_, i) => (
+            <div
+              key={i}
               className={`h-2.5 rounded-full transition-all duration-300 ${i === index ? "w-10 bg-secondary" : "w-2.5 bg-secondary/30"}`}
             />
           ))}

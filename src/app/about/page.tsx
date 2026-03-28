@@ -8,7 +8,7 @@ export default function AboutPage() {
     <main className="w-full bg-background">
       {/* Description Section */}
       <AboutIntroduction />
-      
+
       {/* Values Section */}
       <AboutValues />
 
