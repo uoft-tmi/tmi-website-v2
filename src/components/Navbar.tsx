@@ -2,35 +2,39 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
-    const [mounted, setMounted] = useState(false);
+    const mounted = useRef(false);
 
     // Read theme preference after mount to avoid hydration mismatch
     useEffect(() => {
-        setMounted(true);
         const savedTheme = localStorage.getItem("theme");
         const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
         const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
-        setIsDarkMode(shouldBeDark);
 
         if (shouldBeDark) {
             document.documentElement.classList.add("dark");
         }
+
+        // Defer state update to avoid synchronous setState in effect
+        queueMicrotask(() => {
+            setIsDarkMode(shouldBeDark);
+            mounted.current = true;
+        });
     }, []);
 
     useEffect(() => {
         // Sync DOM with state changes (skip on initial mount)
-        if (!mounted) return;
+        if (!mounted.current) return;
         if (isDarkMode) {
             document.documentElement.classList.add("dark");
         } else {
             document.documentElement.classList.remove("dark");
         }
-    }, [isDarkMode, mounted]);
+    }, [isDarkMode]);
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -43,7 +47,7 @@ export default function Navbar() {
     const toggleTheme = () => {
         const newTheme = !isDarkMode;
         setIsDarkMode(newTheme);
-        
+
         if (newTheme) {
             document.documentElement.classList.add("dark");
             localStorage.setItem("theme", "dark");
@@ -311,4 +315,3 @@ export default function Navbar() {
         </>
     );
 }
-
