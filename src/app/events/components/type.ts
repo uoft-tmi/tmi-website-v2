@@ -1,5 +1,3 @@
-// app/components/events/types.ts
-
 export type EventStatus = "Active" | "Paused" | "Completed";
 
 export type EventMedia =

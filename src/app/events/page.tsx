@@ -1,6 +1,6 @@
 // app/events/page.tsx
-import { EventCard } from "@/app/components/events/EventCard";
-import { sampleEvents } from "@/app/components/events/sampleData";
+import { EventCard } from "./components/EventCard";
+import { sampleEvents } from "./components/sampleData";
 
 export default function Events() {
     // Sort events by date (earliest first)

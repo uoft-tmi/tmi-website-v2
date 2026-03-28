@@ -1,7 +1,7 @@
 import type {Event} from "./type";
-import { Card } from "@/app/components/ui/Card";
-import { Button } from "@/app/components/ui/Button";
-import { Badge } from "@/app/components/ui/Badge";
+import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
 
 // defines the props for EventCard
 interface EventCardProps {
@@ -40,8 +40,6 @@ export function EventCard({event} : EventCardProps) {
         typeof event.spots === "number" &&
         typeof event.attendees === "number" &&
         event.attendees >= event.spots;
-
-    const isDisabled = event.status !== "Active" || isFull;
 
     const spotsLeft =
         typeof event.spots === "number" && typeof event.attendees === "number"
