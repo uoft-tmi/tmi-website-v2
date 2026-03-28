@@ -66,30 +66,41 @@ export default function Apply() {
     ];
 
     return (
-        <main className="min-h-dvh w-full flex items-center justify-center bg-background text-secondary">
-            <section className="flex flex-col max-w-4xl gap-16 justify-center px-6 py-16">
-                <h1 className="flex justify-center text-5xl font-extrabold leading-tight">
-                    Join TMI
-                </h1>
-                <section className="grid grid-cols-1 md:grid-cols-2 justify-center place-items-center gap-16 px-6">
-                    <Image
-                        src="/tmi-team.png"
-                        alt="TMI Team Picture"
-                        width={500}
-                        height={500}
-                        className="w-full max-w-xs h-auto object-contain rounded-lg"
-                    />
-                    <div className="flex flex-col justify-center gap-6">
-                        <h1 className="text-4xl font-extrabold leading-tight">
-                            Why Join?
-                        </h1>
-                        <DescriptionList descriptions={descriptions} />
+        <main className="min-h-dvh w-full bg-background text-secondary">
+            <section className="w-full max-w-6xl mx-auto px-6 py-16 md:py-24">
+                <header className="text-center">
+                    <h1 className="mt-4 text-4xl md:text-5xl font-extrabold leading-tight text-secondary">
+                        Join TMI
+                    </h1>
+                    <p className="mx-auto mt-4 max-w-2xl text-base md:text-lg text-text-muted leading-relaxed">
+                        Build real-world, ethical AI projects with a
+                        collaborative community of students from diverse
+                        backgrounds.
+                    </p>
+                </header>
+
+                <section className="mt-10 md:mt-14 rounded-2xl border border-secondary/20 bg-card shadow-sm p-6 md:p-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-12">
+                        <Image
+                            src="/tmi-team.png"
+                            alt="TMI Team Picture"
+                            width={560}
+                            height={560}
+                            className="w-full max-w-md mx-auto h-auto object-contain rounded-xl"
+                        />
+                        <div className="flex flex-col gap-6">
+                            <h2 className="text-3xl md:text-4xl font-extrabold leading-tight text-secondary">
+                                Why Join?
+                            </h2>
+                            <DescriptionList descriptions={descriptions} />
+                        </div>
                     </div>
                 </section>
-                <section>
-                    <h1 className="flex justify-center text-4xl font-extrabold leading-tight">
+
+                <section className="mt-12 md:mt-16">
+                    <h2 className="text-2xl md:text-3xl font-bold text-secondary">
                         Stay Up to Date
-                    </h1>
+                    </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 auto-rows-fr">
                         <LinkCard
                             link="https://docs.google.com/forms/d/e/1FAIpQLSdS1rDb7ixs7ub8Tnd914hGWpINzhEaGipffXfqs5dyxlCd3g/viewform"
@@ -130,10 +141,11 @@ export default function Apply() {
                         </LinkCard>
                     </div>
                 </section>
-                <section>
-                    <h1 className="flex justify-center text-4xl font-extrabold leading-tight">
+
+                <section className="mt-12 md:mt-16">
+                    <h2 className="text-2xl md:text-3xl font-bold text-secondary">
                         Positions
-                    </h1>
+                    </h2>
                     <div className="grid grid-flow-row gap-4 mt-6">
                         {positions.map((position, index) => (
                             <PositionCard
@@ -144,17 +156,20 @@ export default function Apply() {
                         ))}
                     </div>
                 </section>
-                <section>
-                    <h1 className="flex justify-center text-4xl font-extrabold leading-tight">
+
+                <section className="mt-12 md:mt-16">
+                    <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-6">
                         FAQ
-                    </h1>
-                    {faqs.map((faq, index) => (
-                        <DropdownCard
-                            key={index}
-                            title={faq.title}
-                            description={faq.description}
-                        />
-                    ))}
+                    </h2>
+                    <div className="grid grid-cols-1 gap-4">
+                        {faqs.map((faq, index) => (
+                            <DropdownCard
+                                key={index}
+                                title={faq.title}
+                                description={faq.description}
+                            />
+                        ))}
+                    </div>
                 </section>
             </section>
         </main>

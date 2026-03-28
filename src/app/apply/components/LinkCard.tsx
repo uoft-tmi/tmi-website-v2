@@ -16,7 +16,7 @@ export function LinkCard({
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className={`bg-card p-4 rounded-lg border border-secondary/20 dark:border-secondary/30 shadow-md hover:bg-hover-default gap-1 ${className}`}
+            className={`bg-card p-4 rounded-xl border border-secondary/20 dark:border-secondary/30 shadow-sm hover:shadow-md hover:border-secondary/40 transition-all duration-200 hover:-translate-y-0.5 gap-1 ${className}`}
         >
             {children}
         </a>
