@@ -1,6 +1,6 @@
 "use client";
 
-import "../apply.css";
+import "./apply.css";
 
 export function LinkCard({
     link,

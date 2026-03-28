@@ -1,6 +1,6 @@
 "use client";
 
-import "../apply.css";
+import "./apply.css";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 
 export function PositionCard({

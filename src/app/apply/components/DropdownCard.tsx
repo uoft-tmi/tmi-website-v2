@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
-import "../apply.css";
+import "./apply.css";
 
 export function DropdownCard({
     title,
