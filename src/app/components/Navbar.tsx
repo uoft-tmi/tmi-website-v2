@@ -6,25 +6,31 @@ import { useState, useEffect } from "react";
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    // Initialize from localStorage or system preference using lazy initializer
-    const [isDarkMode, setIsDarkMode] = useState(() => {
-        // This function only runs once during initial render on client
-        if (typeof window !== "undefined") {
-            const savedTheme = localStorage.getItem("theme");
-            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            return savedTheme === "dark" || (!savedTheme && prefersDark);
+    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    // Read theme preference after mount to avoid hydration mismatch
+    useEffect(() => {
+        setMounted(true);
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+        setIsDarkMode(shouldBeDark);
+
+        if (shouldBeDark) {
+            document.documentElement.classList.add("dark");
         }
-        return false; // Server-side default
-    });
+    }, []);
 
     useEffect(() => {
-        // Sync DOM with state changes
+        // Sync DOM with state changes (skip on initial mount)
+        if (!mounted) return;
         if (isDarkMode) {
             document.documentElement.classList.add("dark");
         } else {
             document.documentElement.classList.remove("dark");
         }
-    }, [isDarkMode]);
+    }, [isDarkMode, mounted]);
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
