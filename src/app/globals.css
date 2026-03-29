@@ -23,18 +23,18 @@
     --color-on-accent: var(--color-white);
 
     /* Typography Scale */
-    --font-size-display-lg: 7rem;      /* Home hero desktop */
-    --font-size-display-md: 6rem;      /* Home hero mobile */
-    --font-size-h1: 3rem;              /* Standard h1 */
-    --font-size-h1-sm: 2.5rem;         /* h1 mobile */
-    --font-size-h2: 2.25rem;           /* Section headers */
-    --font-size-h2-sm: 1.875rem;       /* h2 mobile */
-    --font-size-h3: 1.5rem;            /* Subsections */
-    --font-size-h3-sm: 1.25rem;        /* h3 mobile */
-    --font-size-h4: 1.25rem;           /* Card titles */
-    --font-size-body-lg: 1.125rem;     /* Large body */
-    --font-size-body: 1rem;            /* Standard body */
-    --font-size-body-sm: 0.875rem;     /* Small text */
+    --font-size-display-lg: 7rem; /* Home hero desktop */
+    --font-size-display-md: 6rem; /* Home hero mobile */
+    --font-size-h1: 3rem; /* Standard h1 */
+    --font-size-h1-sm: 2.5rem; /* h1 mobile */
+    --font-size-h2: 2.25rem; /* Section headers */
+    --font-size-h2-sm: 1.875rem; /* h2 mobile */
+    --font-size-h3: 1.5rem; /* Subsections */
+    --font-size-h3-sm: 1.25rem; /* h3 mobile */
+    --font-size-h4: 1.25rem; /* Card titles */
+    --font-size-body-lg: 1.125rem; /* Large body */
+    --font-size-body: 1rem; /* Standard body */
+    --font-size-body-sm: 0.875rem; /* Small text */
 
     /* Status Colors (for badges) */
     --color-success: #10b981;
@@ -73,4 +73,32 @@ html.dark {
     --color-success: #34d399;
     --color-warning: #9ca3af;
     --color-info: #60a5fa;
+}
+
+/* Theme-aware custom scrollbar */
+.themed-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--color-secondary) 65%, transparent)
+        color-mix(in srgb, var(--color-secondary) 16%, transparent);
+}
+
+.themed-scrollbar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.themed-scrollbar::-webkit-scrollbar-track {
+    background: color-mix(in srgb, var(--color-secondary) 16%, transparent);
+    border-radius: 9999px;
+}
+
+.themed-scrollbar::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--color-secondary) 65%, transparent);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+.themed-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--color-primary) 70%, transparent);
+    background-clip: content-box;
 }
