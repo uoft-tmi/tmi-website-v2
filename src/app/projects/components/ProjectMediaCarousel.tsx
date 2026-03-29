@@ -98,17 +98,6 @@ export function ProjectMediaCarousel({ project }: ProjectMediaCarouselProps) {
 
     useEffect(() => {
         if (!isOverlayOpen) return;
-
-        const previousOverflow = document.body.style.overflow;
-        document.body.style.overflow = "hidden";
-
-        return () => {
-            document.body.style.overflow = previousOverflow;
-        };
-    }, [isOverlayOpen]);
-
-    useEffect(() => {
-        if (!isOverlayOpen) return;
         overlayPanelRef.current?.focus();
     }, [isOverlayOpen]);
 
@@ -220,7 +209,7 @@ export function ProjectMediaCarousel({ project }: ProjectMediaCarouselProps) {
                 return (
                     <div
                         key={`image-${index}`}
-                        className="relative w-full h-[58vh] md:h-[74vh] flex items-center justify-center bg-background"
+                        className="relative h-full w-full flex items-center justify-center bg-background"
                     >
                         <Image
                             src={slide.src}
@@ -255,9 +244,7 @@ export function ProjectMediaCarousel({ project }: ProjectMediaCarouselProps) {
                 <div
                     key={`code-${index}`}
                     className={`w-full overflow-auto bg-gray-900 dark:bg-gray-950 p-3 md:p-4 ${
-                        mode === "overlay"
-                            ? "h-[58vh] md:h-[74vh]"
-                            : "h-[240px] md:h-[280px]"
+                        mode === "overlay" ? "h-full" : "h-[240px] md:h-[280px]"
                     }`}
                 >
                     <div className="mb-2 text-xs text-gray-400 font-mono">
@@ -275,9 +262,7 @@ export function ProjectMediaCarousel({ project }: ProjectMediaCarouselProps) {
                 <div
                     key={`video-${index}`}
                     className={`relative w-full flex items-center justify-center bg-background ${
-                        mode === "overlay"
-                            ? "h-[58vh] md:h-[74vh]"
-                            : "h-[200px] md:h-[240px]"
+                        mode === "overlay" ? "h-full" : "h-[200px] md:h-[240px]"
                     }`}
                 >
                     <video
@@ -406,7 +391,7 @@ export function ProjectMediaCarousel({ project }: ProjectMediaCarouselProps) {
                 >
                     <div
                         ref={overlayPanelRef}
-                        className="relative mx-auto flex h-full max-w-6xl flex-col overflow-y-auto rounded-2xl border border-white/20 bg-card shadow-2xl"
+                        className="relative mx-auto flex h-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-white/20 bg-card shadow-2xl"
                         onKeyDown={handleOverlayKeyDown}
                         tabIndex={-1}
                     >
@@ -419,130 +404,140 @@ export function ProjectMediaCarousel({ project }: ProjectMediaCarouselProps) {
                             Close
                         </button>
 
-                        <div
-                            className="overflow-hidden rounded-t-2xl"
-                            ref={overlayEmblaRef}
-                        >
-                            <div className="flex">
-                                {slides.map((slide, index) => (
-                                    <div
-                                        key={`overlay-${index}`}
-                                        className="flex-[0_0_100%] min-w-0"
-                                        role="group"
-                                        aria-roledescription="slide"
-                                        aria-label={`Slide ${index + 1} of ${slides.length}`}
-                                    >
-                                        {renderSlide(slide, index, "overlay")}
-                                    </div>
-                                ))}
+                        <div className="relative flex min-h-0 flex-[0_0_70%] flex-col rounded-t-2xl">
+                            <div
+                                className="min-h-0 flex-1 overflow-hidden"
+                                ref={overlayEmblaRef}
+                            >
+                                <div className="flex h-full">
+                                    {slides.map((slide, index) => (
+                                        <div
+                                            key={`overlay-${index}`}
+                                            className="flex-[0_0_100%] min-w-0"
+                                            role="group"
+                                            aria-roledescription="slide"
+                                            aria-label={`Slide ${index + 1} of ${slides.length}`}
+                                        >
+                                            {renderSlide(
+                                                slide,
+                                                index,
+                                                "overlay",
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
+
+                            {(overlayCanScrollPrev || overlayCanScrollNext) && (
+                                <>
+                                    <button
+                                        onClick={scrollOverlayPrev}
+                                        disabled={!overlayCanScrollPrev}
+                                        className="absolute left-3 top-1/2 z-20 -translate-y-1/2 rounded-full bg-card/95 p-3 text-text-primary shadow-lg transition-opacity hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 disabled:cursor-not-allowed disabled:opacity-30"
+                                        aria-label="Previous slide"
+                                    >
+                                        <svg
+                                            className="h-6 w-6"
+                                            fill="none"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path d="M15 19l-7-7 7-7" />
+                                        </svg>
+                                    </button>
+                                    <button
+                                        onClick={scrollOverlayNext}
+                                        disabled={!overlayCanScrollNext}
+                                        className="absolute right-3 top-1/2 z-20 -translate-y-1/2 rounded-full bg-card/95 p-3 text-text-primary shadow-lg transition-opacity hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 disabled:cursor-not-allowed disabled:opacity-30"
+                                        aria-label="Next slide"
+                                    >
+                                        <svg
+                                            className="h-6 w-6"
+                                            fill="none"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </button>
+                                </>
+                            )}
+
+                            {overlayScrollSnaps.length > 1 && (
+                                <div className="flex shrink-0 justify-center gap-2 py-4">
+                                    {overlayScrollSnaps.map((_, index) => (
+                                        <button
+                                            key={`overlay-dot-${index}`}
+                                            onClick={() =>
+                                                scrollOverlayTo(index)
+                                            }
+                                            className={`h-2 rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 ${
+                                                index === overlaySelectedIndex
+                                                    ? "w-8 bg-primary"
+                                                    : "w-2 bg-secondary/30 hover:bg-secondary/50"
+                                            }`}
+                                            aria-label={`Go to slide ${index + 1}`}
+                                            aria-current={
+                                                index === overlaySelectedIndex
+                                                    ? "true"
+                                                    : "false"
+                                            }
+                                        />
+                                    ))}
+                                </div>
+                            )}
                         </div>
 
-                        {(overlayCanScrollPrev || overlayCanScrollNext) && (
-                            <>
-                                <button
-                                    onClick={scrollOverlayPrev}
-                                    disabled={!overlayCanScrollPrev}
-                                    className="absolute left-3 top-1/2 z-20 -translate-y-1/2 rounded-full bg-card/95 p-3 text-text-primary shadow-lg transition-opacity hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 disabled:cursor-not-allowed disabled:opacity-30"
-                                    aria-label="Previous slide"
-                                >
-                                    <svg
-                                        className="h-6 w-6"
-                                        fill="none"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path d="M15 19l-7-7 7-7" />
-                                    </svg>
-                                </button>
-                                <button
-                                    onClick={scrollOverlayNext}
-                                    disabled={!overlayCanScrollNext}
-                                    className="absolute right-3 top-1/2 z-20 -translate-y-1/2 rounded-full bg-card/95 p-3 text-text-primary shadow-lg transition-opacity hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 disabled:cursor-not-allowed disabled:opacity-30"
-                                    aria-label="Next slide"
-                                >
-                                    <svg
-                                        className="h-6 w-6"
-                                        fill="none"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </button>
-                            </>
-                        )}
-
-                        {overlayScrollSnaps.length > 1 && (
-                            <div className="flex justify-center gap-2 py-4">
-                                {overlayScrollSnaps.map((_, index) => (
-                                    <button
-                                        key={`overlay-dot-${index}`}
-                                        onClick={() => scrollOverlayTo(index)}
-                                        className={`h-2 rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 ${
-                                            index === overlaySelectedIndex
-                                                ? "w-8 bg-primary"
-                                                : "w-2 bg-secondary/30 hover:bg-secondary/50"
-                                        }`}
-                                        aria-label={`Go to slide ${index + 1}`}
-                                        aria-current={
-                                            index === overlaySelectedIndex
-                                                ? "true"
-                                                : "false"
-                                        }
-                                    />
-                                ))}
-                            </div>
-                        )}
-
-                        <div className="border-t border-secondary/20 px-5 py-4 md:px-6 md:py-5 text-text-primary">
-                            <h3 className="text-lg md:text-2xl font-bold text-primary">
-                                {project.title}
-                            </h3>
-                            <p className="mt-2 text-sm md:text-base text-text-muted">
-                                {project.description}
-                            </p>
-                            <p className="mt-3 text-xs md:text-sm text-text-muted">
-                                Research Leads: {project.leads.join(", ")}
-                            </p>
-                            {project.advisor && (
-                                <p className="text-xs md:text-sm text-text-muted">
-                                    Advising Professor: {project.advisor}
+                        <div className="min-h-0 flex-[0_0_30%] border-t border-secondary/20 px-5 py-4 md:px-6 md:py-5 text-text-primary">
+                            <div className="themed-scrollbar h-full overflow-y-auto pr-1">
+                                <h3 className="text-lg md:text-2xl font-bold text-primary">
+                                    {project.title}
+                                </h3>
+                                <p className="mt-2 text-sm md:text-base text-text-muted">
+                                    {project.description}
                                 </p>
-                            )}
-                            {project.tags.length > 0 && (
-                                <div className="mt-4 flex flex-wrap gap-2">
-                                    {project.tags.map((tag) => (
-                                        <span
-                                            key={tag}
-                                            className="rounded-full border border-secondary/50 bg-secondary/10 px-3 py-1 text-xs text-secondary"
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            )}
-                            {overlayLinks.length > 0 && (
-                                <div className="mt-4 flex flex-wrap gap-2">
-                                    {overlayLinks.map((link) => (
-                                        <a
-                                            key={link.label}
-                                            href={link.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center justify-center rounded-md border border-secondary/30 px-4 py-2 text-sm font-medium text-secondary transition-colors hover:bg-secondary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
-                                        >
-                                            {link.label}
-                                        </a>
-                                    ))}
-                                </div>
-                            )}
+                                <p className="mt-3 text-xs md:text-sm text-text-muted">
+                                    Research Leads: {project.leads.join(", ")}
+                                </p>
+                                {project.advisor && (
+                                    <p className="text-xs md:text-sm text-text-muted">
+                                        Advising Professor: {project.advisor}
+                                    </p>
+                                )}
+                                {project.tags.length > 0 && (
+                                    <div className="mt-4 flex flex-wrap gap-2">
+                                        {project.tags.map((tag) => (
+                                            <span
+                                                key={tag}
+                                                className="rounded-full border border-secondary/50 bg-secondary/10 px-3 py-1 text-xs text-secondary"
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
+                                {overlayLinks.length > 0 && (
+                                    <div className="mt-4 flex flex-wrap gap-2 pb-1">
+                                        {overlayLinks.map((link) => (
+                                            <a
+                                                key={link.label}
+                                                href={link.href}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center justify-center rounded-md border border-secondary/30 px-4 py-2 text-sm font-medium text-secondary transition-colors hover:bg-secondary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+                                            >
+                                                {link.label}
+                                            </a>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
