@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { NewsletterGrid } from "./components/NewsletterGrid";
 
 export default function Newsletter() {
     const router = useRouter();
@@ -63,8 +64,9 @@ export default function Newsletter() {
     };
 
     return (
-        <main className="min-h-dvh w-full flex items-center justify-center bg-background">
-            <section className="w-full max-w-md px-6 py-16">
+        <main className="min-h-dvh w-full bg-background">
+            <section className="w-full flex justify-center py-16">
+                <div className="w-full max-w-md px-6">
                 <div className="text-center mb-8">
                     <div className="mx-auto inline-block rounded-full border border-secondary/60 bg-secondary/10 px-4 py-1 text-xs font-semibold tracking-wide text-secondary">
                         Stay Connected
@@ -144,7 +146,16 @@ export default function Newsletter() {
                 <p className="mt-6 text-center text-xs text-text-muted">
                     We respect your privacy. Unsubscribe at any time.
                 </p>
+                </div>
             </section>
+
+            {/* Divider */}
+            <div className="w-full max-w-4xl mx-auto px-6">
+                <div className="h-px bg-secondary/20" />
+            </div>
+
+            {/* Newsletter Previews */}
+            <NewsletterGrid />
 
             {/* Subtle background glow - matching home page */}
             <div className="pointer-events-none fixed inset-0 -z-10">
