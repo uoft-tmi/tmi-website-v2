@@ -15,32 +15,27 @@ export const sampleProjects: Project[] = [
       {
         type: "image",
         src: "/images/projects/explainable-censorship/ec-figure1.png",
-        alt: "Toxic-BERT flagging accuracy confusion matrix",
+        alt: "",
       },
       {
         type: "image",
         src: "/images/projects/explainable-censorship/ec-figure2.png",
-        alt: "Mis-classification rate by targeted demographic group",
+        alt: "",
       },
       {
         type: "image",
         src: "/images/projects/explainable-censorship/ec-figure3.png",
-        alt: "False positives - RoBERTa categories driving over-flagging",
+        alt: "",
       },
       {
         type: "image",
         src: "/images/projects/explainable-censorship/ec-figure4.png",
-        alt: "False negatives - RoBERTa categories missed",
+        alt: "",
       },
       {
         type: "image",
         src: "/images/projects/explainable-censorship/ec-figure5.png",
-        alt: "False negatives - harm categories humans identified",
-      },
-      {
-        type: "image",
-        src: "/images/projects/explainable-censorship/ec-figure6.png",
-        alt: "Effect of typo frequency on model performance",
+        alt: "",
       },
     ],
   },
@@ -99,6 +94,11 @@ export const sampleProjects: Project[] = [
         src: "/images/projects/context-based-captioning/cbc-figure6.png",
         alt: "Context Based Captioning figure 6",
       },
+      {
+        type: "image",
+        src: "/images/projects/context-based-captioning/cbc-figure7.png",
+        alt: "Context Based Captioning figure 7",
+      }
     ],
   },
   {
