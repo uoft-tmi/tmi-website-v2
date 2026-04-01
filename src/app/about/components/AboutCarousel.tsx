@@ -39,7 +39,7 @@ const teamMembers = [
   {
     name: "Christina",
     role: "Project Lead: Context-Based Captioning",
-    imageUrl: "/images/people/christina.png",
+    imageUrl: "/images/people/christina.jpeg",
     bio: "Human-centric AI, ML for Privacy/Defense",
   },
   {
