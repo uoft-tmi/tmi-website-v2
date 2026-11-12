@@ -62,8 +62,7 @@ export default function Navbar() {
         { href: "/about", label: "About" },
         { href: "/events", label: "Events" },
         { href: "/projects", label: "Projects" },
-        { href: "/newsletter", label: "Newsletter" },
-        { href: "/apply", label: "Apply" },
+        { href: "/connect", label: "Connect" },
     ];
 
     return (

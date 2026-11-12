@@ -46,7 +46,7 @@ export default function Home() {
                 <p className="text-xl text-text-muted sm:text-2xl">Building Trustworthy Machine Intelligence</p>
                 <div className="mt-8 flex items-center justify-center gap-3">
                     <a
-                        href="#learn-more"
+                        href="/connect"
                         className="rounded-md bg-secondary px-5 py-2.5 text-sm font-semibold text-on-accent shadow-sm
                         transition hover:bg-hover-teal focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
                     >
