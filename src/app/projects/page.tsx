@@ -61,7 +61,7 @@ export default function Projects() {
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5">
             <Link
-              href="/apply"
+              href="/connect"
               className="rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-on-accent shadow-sm transition hover:bg-hover-orange focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
             >
               Join Us
