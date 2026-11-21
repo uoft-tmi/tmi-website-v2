@@ -1,12 +1,106 @@
 import { Project } from "./types";
 
 export const sampleProjects: Project[] = [
+  // 26/27 projects
+  {
+    id: "5",
+    title: "LLM Sycophancy Mitigation",
+    description:
+      "LLMs can change correct answers simply because users push back. How can we stop AI from blindly agreeing without making it less helpful or accurate?",
+    status: "Active",
+    tags: ["LLMs", "Sycophancy", "Alignment", "Robustness"],
+    leads: [],
+    links: {
+      proposal:
+        "https://docs.google.com/document/d/18ixg4s_yK7XIg57KUF7iQx4igkmsfxPke4AEb0am4Wk/edit?usp=sharing",
+    },
+    media: [{ type: "overview" }],
+  },
+  {
+    id: "6",
+    title: "Socratic AI Tutor",
+    description:
+      "How can we build an AI tutor that helps students solve problems without solving them for them?",
+    status: "Active",
+    tags: ["AI in Education", "LLMs", "Human-AI Interaction"],
+    leads: [],
+    links: {
+      proposal:
+        "https://docs.google.com/document/d/1rL0hzYbRthrpLczFMHq1yX5OD7W0vqo5eatygBtXl1A/edit?usp=sharing",
+    },
+    media: [{ type: "overview" }],
+  },
+  {
+    id: "7",
+    title: "Whiteboxing LLM Behaviour",
+    description:
+      "What happens inside an LLM before it produces a harmful response? Can we detect the warning signs hidden in its internal activations?",
+    status: "Active",
+    tags: ["Interpretability", "LLMs", "AI Safety"],
+    leads: [],
+    links: {},
+    media: [{ type: "overview" }],
+  },
+  {
+    id: "8",
+    title: "Synthetic Data Screening",
+    description:
+      "Not all synthetic training data is created equal. What makes synthetic data trustworthy enough to train AI?",
+    status: "Active",
+    tags: ["Synthetic Data", "Data Quality", "Responsible AI"],
+    leads: [],
+    links: {
+      proposal:
+        "https://docs.google.com/document/d/1wGd7tVCHAJ8ntJD-n_MAHbqc8EWJhJi_ZhhxXn36Lj0/edit?usp=sharing",
+    },
+    media: [{ type: "overview" }],
+  },
+  {
+    id: "9",
+    title: "Uncertainty-Aware RAG",
+    description:
+      "What if AI could decide not only what to answer, but whether its evidence is good enough to answer at all?",
+    status: "Active",
+    tags: ["RAG", "Uncertainty", "LLMs", "Reliability"],
+    leads: [],
+    links: {
+      proposal:
+        "https://docs.google.com/document/d/1oxy9txFOXoEpWfCnNlQ8bOCk9ruSjBrhTLEzDjnRIPk/edit?usp=sharing",
+    },
+    media: [{ type: "overview" }],
+  },
+  {
+    id: "10",
+    title: "Copyright Safeguarding",
+    description:
+      "AI promises copyright protection. Can we put those safeguards to the test and make them stronger?",
+    status: "Active",
+    tags: ["Copyright", "AI Safety", "Generative AI"],
+    leads: [],
+    links: {},
+    media: [{ type: "overview" }],
+  },
+  {
+    id: "11",
+    title: "Privacy-Preserving LLM Gateway",
+    description:
+      "How can we protect sensitive data while preserving the usefulness of LLM responses?",
+    status: "Active",
+    tags: ["Privacy", "LLMs", "Data Protection"],
+    leads: [],
+    links: {
+      proposal:
+        "https://docs.google.com/document/d/1oDY23HJIKzhTuS8ukdYnuBkjADiQgc19OZtcNxqMAf0/edit?usp=sharing",
+    },
+    media: [{ type: "overview" }],
+  },
+  // Past projects
   {
     id: "1",
     title: "Explainable Censorship",
     description:
       "Analyzing open-source moderation models to examine how they behave in ambiguous cases. Explores interpretability, calibration, and explanation techniques to improve transparency in automated content moderation using the UC Berkeley Measuring Hate Speech dataset.",
-    status: "Active",
+    status: "Completed",
     tags: ["Content Moderation", "Interpretability", "Fairness", "Transformers", "NLP"],
     leads: ["Yiping Chen"],
     links: {},
@@ -44,7 +138,7 @@ export const sampleProjects: Project[] = [
     title: "Context Based Captioning",
     description:
       "Context-Based Captioning is a high-accuracy, live transcription system designed to master complex STEM terminology through a hybrid multi-stage architecture. By integrating course-specific materials via ModernBERT and Shallow Fusion, the pipeline dynamically biases distil-whisper to ensure technical accuracy in real-time university environments.",
-    status: "Active",
+    status: "Completed",
     tags: [
       "Accessibility",
       "Explainable AI",
@@ -106,7 +200,7 @@ export const sampleProjects: Project[] = [
     title: "Machine Unlearning",
     description:
       "Evaluating the performance trade-offs of diverse machine unlearning frameworks by simulating user data removal requests within social media recommender systems.",
-    status: "Active",
+    status: "Completed",
     tags: ["Machine Unlearning", "Data Privacy", "AI Safety", "GDPR", "Benchmark"],
     leads: ["Seoyun Yang"],
     links: {
@@ -143,7 +237,7 @@ export const sampleProjects: Project[] = [
     title: "LLM Social Simulation",
     description:
       "Studying collective behavior of LLM agents in multi-agent environments with shared resource constraints. Investigates cooperation vs. collapse dynamics, resource competition, social norm emergence, and governance mechanisms when agents compete over regenerating resources.",
-    status: "Active",
+    status: "Completed",
     tags: ["Multi-Agent Systems", "LLM Agents", "Social Simulation", "Cooperation", "Game Theory"],
     leads: ["Clementine Yang"],
     links: {},
