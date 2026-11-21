@@ -32,9 +32,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 >
                     {isExpanded ? "Show less" : "Read more"}
                 </button>
-                <p className="text-xs text-text-muted">
-                    Research Leads: {project.leads.join(", ")}
-                </p>
+                {project.leads.length > 0 && (
+                    <p className="text-xs text-text-muted">
+                        Research Leads: {project.leads.join(", ")}
+                    </p>
+                )}
                 {project.advisor && (
                     <p className="text-xs text-text-muted">
                         Advising Professor: {project.advisor}
